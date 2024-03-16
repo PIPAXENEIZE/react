@@ -17,7 +17,7 @@ function App() {
          <Route path='product' element={ <Product /> } />
          <Route path='contact' element={ <Contact /> } />
          <Route path='*' element={ <Navigate replace to="/"/> } />
-         <Route path="/product/:id" element={<ProductDetail />} />
+         <Route path="/product/items/:id" element={<ProductDetail />} />
 
         </Route>
       </Routes>

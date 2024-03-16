@@ -67,7 +67,7 @@ function ItemDetail() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {filteredProducts.map(product => (
           <div key={product.id} className="product-card p-4 bg-white shadow-lg rounded-lg flex">
-            <Link to={`/product/item-${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link to={`/product/items/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <img src={product.imageURL || product.imageURL} alt={product.name} style={{ width: '150px', height: 'auto' }} className="w-full h-auto mx-auto" />
               <div className="ml-4">
                 <h3 className="text-black text-xl">{product.name}</h3>
