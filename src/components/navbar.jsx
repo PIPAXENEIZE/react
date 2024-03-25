@@ -26,7 +26,8 @@ const NavBarTest = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-            <Nav.Link as={Link} to="/product">Productos</Nav.Link>
+            <Nav.Link as={Link} to="/categoria/productos">Productos</Nav.Link>
+            <Nav.Link as={Link} to="/categoria/productos/SSD">DISCOS SOLIDOS</Nav.Link>
             <Nav.Link as={Link} to="/contact">Quienes Somos</Nav.Link>
           </Nav>
           <Cart />

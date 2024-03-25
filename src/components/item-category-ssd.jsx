@@ -4,29 +4,27 @@ import products from '../utils/AsyncMock';
 import 'tailwindcss/tailwind.css';
 import { FadeLoader } from 'react-spinners';
 
-// Función para simular una solicitud asincrónica
+// asincronia
 function mockAsyncRequest(data) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(data);
-    }, 1000); // Simulamos un retardo de 1 segundo
+    }, 1000);
   });
 }
 
-function ItemDetail() {
+function ItemCategory() {
   const [loading, setLoading] = useState(true);
   const [productsData, setProductsData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('SSD'); // Cambiado a 'SSD'
 
   useEffect(() => {
     async function fetchData() {
       try {
-        // Simulamos una solicitud asincrónica para obtener productos
         const fetchedProducts = await mockAsyncRequest(products);
-        // Verificamos si los datos de productos son un objeto y convertimos a un array de objetos
         const productsArray = Object.values(fetchedProducts).flat();
         setProductsData(productsArray);
-        setLoading(false); // Marcamos que la carga ha finalizado
+        setLoading(false);
       } catch (error) {
         console.error('Error:', error);
       }
@@ -34,7 +32,6 @@ function ItemDetail() {
     fetchData();
   }, []);
 
-  // Filtrar los productos basados en la categoría seleccionada
   const filteredProducts = selectedCategory
     ? productsData.filter(product => product.category === selectedCategory)
     : productsData;
@@ -50,20 +47,6 @@ function ItemDetail() {
   return (
     <div className="container mx-auto">
       <div className="flex mb-4">
-        <div className="mr-4">
-          <span>Filtrar por categoría:</span>
-          <select
-            className="ml-2 p-2 border border-gray-300 rounded"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            <option value="">Todas</option>
-            <option value="SSD">SSD</option>
-            <option value="HDD">HDD</option>
-            <option value="OLD DISK">OLD DISK</option>
-          </select>
-        </div>
-
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {filteredProducts.map(product => (
@@ -85,4 +68,4 @@ function ItemDetail() {
   );
 }
 
-export default ItemDetail;
+export default ItemCategory;
